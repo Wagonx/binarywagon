@@ -1,0 +1,158 @@
+// Natural Brown Reading-Friendly Colors for site
+$warm-clay: #B5826B;
+$soft-charcoal: #2C2C2C;
+$warm-off-white: #FAF8F3;
+$deep-coffee: #1A1612;
+$medium-taupe: #6B5F55;
+$dusty-olive: #8B9A7A;
+$light-mushroom: #F0EBE3;
+$muted-brown: #4A3F35;
+$pale-linen: #F5F2ED;
+$soft-beige: #E8E0D4;
+$warm-cream: #E8DCC6;
+$burnt-sienna: #A0522D;
+$sage-green: #87A96B;
+$warm-ivory: #FDFBF7;
+$coffee-bean: #3C2415;
+
+// Default Colors and Opacity for Admonition
+$muted-blue: #6B8CAE;
+$earthy-teal: #5A8B7A;
+$sage-mint: #7B9B8A;
+$forest-green: #6B8B5A;
+$amber-brown: #B8956A;
+$terracotta: #B87A5A;
+$rust-red: #A85A4A;
+$plum-brown: #8B5A6B;
+$admonition-background-opacity : 0.1;
+
+// Default dimmed value
+$dimmed-opacity: 0.8 !default;
+
+// Background color
+$html-background: $deep-coffee !default;
+
+// Site Navigation color
+$site-nav-children-border-right: $medium-taupe !default;
+
+// Posts seperator in list view
+$post-item-border-bottom: $soft-beige !default;
+
+// Pinned posts group seperator in list view
+$pinned-posts-group-border-bottom: $soft-beige !default;
+
+// Elements of the site which are expected to follow accent color
+$aTag-mixin-a-box-shadow: $warm-clay !default;
+$aTag-mixin-a-hover-box-shadow: $burnt-sienna !default;
+$content-anchor-hover: $warm-clay !default;
+$post-description-a-hover-border-bottom: $warm-clay !default;
+$tableofcontents-a-hover-border-bottom: $warm-clay !default;
+$scrolltotop-arrow: $warm-clay !default;
+$typewriter: $warm-clay !default;
+$footnote-ref-hover-background: $warm-clay !default;
+$marked-background: $warm-clay !default;
+$inserted-text-underline: $warm-clay !default;
+
+// Footnote
+$footnote-ref-background: $muted-brown !default;
+
+// Scroll to Top Default colors
+$scrolltotop-ring: $soft-beige !default;
+$scrolltotop-circle: $coffee-bean !default;
+
+// Page Scrollbar
+$pagescrollbar-background: $muted-brown !default;
+$pagescrollbar-thumb: $medium-taupe !default;
+$pagescrollbar-thumb-hover: $warm-cream !default;
+
+// Table of Contents
+$tableofcontents-background: transparent;
+
+// Table of Contents Scrollbar
+$tableofcontents-scrollbar-track: darken($medium-taupe, 10%) !default;
+$tableofcontents-scrollbar-thumb: $muted-brown !default;
+$tableofcontents-scrollbar-thumb-hover: lighten($muted-brown, 15%) !default;
+
+// Text color (primary reading text - high contrast for readability)
+$text: $warm-cream !default;
+
+// Text selection color
+$text-select: $medium-taupe !default;
+
+// Marked text color
+$marked-text: $warm-off-white !default;
+
+// Link text color on hover
+$a-hover: $warm-off-white !default;
+
+// 404 Page
+$btn-404-a-border: $warm-cream !default;
+$btn-404-a-hover: $warm-off-white !default;
+
+// Social Share links pane
+$share-links-background: $muted-brown !default;
+$share-links-a: $medium-taupe !default;
+$share-links-a-hover-active-focus: $warm-cream !default;
+
+// Code block, Mermaid block color (important for readability)
+$pre-code: $warm-cream !default;
+$pre-code-background: transparent !default;
+$code-background: $coffee-bean !default;
+$syntax-background: $muted-brown !default;
+$pre-background: $muted-brown !default;
+$mermaid-background: $deep-coffee !default;
+
+// Code copy button
+$highlight-copy-btn: $warm-off-white !default;
+$highlight-copy-btn-hover: $medium-taupe !default;
+$highlight-copy-btn-background: $dusty-olive !default;
+
+// Site Header color
+$site-header-background: $coffee-bean !default;
+
+// Mobile menu color
+$mobile-menu-background: $coffee-bean !default;
+
+// Accessibility - Screen reader
+$screen-reader-text: $burnt-sienna !default;
+$screen-reader-text-background: $warm-ivory !default;
+
+// Featured Image (or Background Image) Copyright section
+$featured-image-text: $warm-cream !default;
+$featured-image-background: rgba($coffee-bean, 0.45) !default;
+
+// Image Gallery specific colours
+$gallery-item-box-shadow: 0 2px 4px rgba(26, 22, 18, 0.3) !default;
+$gallery-item-hover-box-shadow: 0 4px 8px rgba(26, 22, 18, 0.4) !default;
+$gallery-item-caption-background: rgba(60, 36, 21, 0.8) !default;
+$gallery-item-caption-color: $warm-cream !default;
+$lightbox-overlay-background: rgba(26, 22, 18, 0.9) !default;
+$lightbox-image-box-shadow: 0 5px 15px rgba(26, 22, 18, 0.6) !default;
+$lightbox-caption-color: $warm-cream !default;
+$lightbox-close-nav-color: $warm-cream !default;
+$lightbox-close-color-hover: $soft-beige !default;
+$lightbox-nav-background-color: rgba(60, 36, 21, 0.4) !default;
+$lightbox-nav-background-color-hover: rgba(60, 36, 21, 0.7) !default;
+
+//Admonition colors (using natural tones that complement the brown theme)
+$admonition-background: (
+    "note": rgba($muted-blue, $admonition-background-opacity),
+    "info": rgba($earthy-teal, $admonition-background-opacity),
+    "tip": rgba($sage-mint, $admonition-background-opacity),
+    "success": rgba($forest-green, $admonition-background-opacity),
+    "warning": rgba($amber-brown, $admonition-background-opacity),
+    "failure": rgba($terracotta, $admonition-background-opacity),
+    "danger": rgba($rust-red, $admonition-background-opacity),
+    "bug": rgba($plum-brown, $admonition-background-opacity),
+    ) !default;
+
+$admonition-color: (
+    "note": $muted-blue,
+    "info": $earthy-teal,
+    "tip": $sage-mint,
+    "success": $forest-green,
+    "warning": $amber-brown,
+    "failure": $terracotta,
+    "danger": $rust-red,
+    "bug": $plum-brown,
+    ) !default;
