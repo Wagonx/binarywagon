@@ -95,6 +95,7 @@ expiryDate = ["expiryDate"]
 
   relatedPosts = true
   code_copy_button = true
+  pinned = "Featured Posts"
 
   homeSubtitlePrinter = true
   scrollToTop = true 

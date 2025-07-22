@@ -3,6 +3,7 @@ title: "Welcome to the Blog"
 date: 2025-07-22T13:35:48-05:00
 draft: false
 toc: false
+pin: true
 images:
 tags: 
   - ramblings
