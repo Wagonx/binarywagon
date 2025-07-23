@@ -4,8 +4,8 @@
 baseURL = "https://collin-blog.collinblomberg.workers.dev"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
-theme = "hermit-v2"
-themesDir = "themes"
+#theme = "hermit-v2"
+#themesDir = "themes"
 #enableRobotsTXT = true ## set to true to enable inbuilt robots.txt
 
 
