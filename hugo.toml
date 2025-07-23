@@ -4,14 +4,9 @@
 baseURL = "https://6a3bdb58.binarywagon.pages.dev"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
-#theme = "hermit-v2"
-#themesDir = "themes"
+theme = "hermit-v2"
+themesDir = "themes"
 #enableRobotsTXT = true ## set to true to enable inbuilt robots.txt
-
-
-[module]
-[[module.imports]]
-path = "github.com/1bl4z3r/hermit-V2"
 
 
 [languages]
