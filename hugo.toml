@@ -1,10 +1,7 @@
-# THIS IS AN EXAMPLE ON HOW YOU SHOULD CONFIGURE YOUR hugo.toml
 # See this hugo.toml in action at https://github.com/1bl4z3r/hermit-V2/blob/staging/hugo.toml
-# Example Site is Staging branch, acessible at https://github.com/1bl4z3r/hermit-V2/tree/staging
 # To see what each config does, refer to https://1bl4z3r.github.io/hermit-V2/en/posts/explaining-configs/
-# Open Issue or Pull Request at https://github.com/1bl4z3r/hermit-V2
 
-baseURL = "localhost"
+baseURL = "https://collin-blog.collinblomberg.workers.dev"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 theme = "hermit-v2"
