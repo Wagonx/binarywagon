@@ -1,0 +1,207 @@
+// Image and Figure Styling
+// Variables
+$image-border-radius: 8px;
+$image-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+$image-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+$caption-color: #6b7280;
+$border-color: #e5e7eb;
+$transition: 0.3s ease;
+
+// Base figure styling
+figure {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 100%;
+
+  // Image styling
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $image-border-radius;
+    box-shadow: $image-shadow;
+    transition: transform $transition, box-shadow $transition;
+    display: block;
+    margin: 0 auto;
+
+    // Hover effect
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: $image-shadow-hover;
+    }
+  }
+
+  // Caption styling
+  figcaption {
+    font-style: italic;
+    color: $caption-color;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    // Caption title (h4) styling
+    h4 {
+      font-style: normal;
+      font-weight: 600;
+      color: #374151;
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Modifier classes
+  &.large img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  &.small img {
+    max-width: 400px;
+    border-radius: 6px;
+  }
+
+  &.bordered img {
+    border: 2px solid $border-color;
+    padding: 8px;
+    background: white;
+  }
+
+  &.screenshot img {
+    border: 1px solid #d1d5db;
+    border-radius: $image-border-radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  &.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+    }
+  }
+}
+
+// Legacy class support (for images with classes directly)
+.large-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.small-image img {
+  max-width: 400px;
+  border-radius: 6px;
+}
+
+.bordered img {
+  border: 2px solid $border-color;
+  padding: 8px;
+  background: white;
+}
+
+.screenshot img {
+  border: 1px solid #d1d5db;
+  border-radius: $image-border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+// Side-by-side images
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+
+  figure {
+    margin: 0;
+  }
+}
+
+// Gallery styling for multiple images
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  figure {
+    margin: 1.5rem auto;
+
+    img {
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    figcaption {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      padding: 0 1rem;
+    }
+
+    &.full-width {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: calc(100vw - 2rem);
+      left: auto;
+      right: auto;
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  figure {
+    figcaption {
+      color: #9ca3af;
+
+      h4 {
+        color: #d1d5db;
+      }
+    }
+
+    &.bordered img {
+      border-color: #374151;
+      background: #1f2937;
+    }
+
+    img {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

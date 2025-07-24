@@ -4,6 +4,7 @@
 @import "mixins";
 @import "normalize.scss";
 @import "syntax.scss";
+@import "images.scss";
 {{ if ne false .Site.Params.usesAnimation }}
 @import "animate.scss";
 {{ end }}
