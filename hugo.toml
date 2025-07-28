@@ -100,7 +100,6 @@ expiryDate = ["expiryDate"]
   # googleTagManager = "GTM-XXXXXXXX"
   # tagSymbol = "#"
   # categorySymbol = "⊲"
-  # pinned = "Pinned Posts"
   # pinnedSVGname = "pin"
   # listLayout = ["description","tags","categories","legacy"]
   # initialPublish = "Initally Posted on: "

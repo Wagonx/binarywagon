@@ -1,0 +1,168 @@
+// Enhanced scrollable code block styling
+// Add this to your existing _syntax.scss or create a new partial
+
+// Scrollable code blocks
+pre {
+    // Your existing styles remain
+    padding: .7em 1.1em;
+    font-size: .9em;
+    line-height: 1.5;
+    letter-spacing: normal;
+    white-space: pre;
+    color: $pre-code;
+    background: $pre-background;
+    border-radius: 4px;
+    
+    // Enhanced scrolling
+    overflow: auto; // Both horizontal and vertical scrolling
+    max-height: 400px; // Limit height to prevent very tall blocks
+    max-width: 100%;
+    
+    // Smooth scrolling behavior
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; // iOS smooth scrolling
+    
+    // Custom scrollbar styling (webkit browsers)
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: darken($pre-background, 5%);
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: lighten($medium-taupe, 10%);
+      border-radius: 4px;
+      
+      &:hover {
+        background: lighten($medium-taupe, 20%);
+      }
+    }
+    
+    &::-webkit-scrollbar-corner {
+      background: $pre-background;
+    }
+    
+    // Firefox scrollbar styling
+    scrollbar-width: thin;
+    scrollbar-color: lighten($medium-taupe, 10%) darken($pre-background, 5%);
+    
+    code {
+      padding: 0;
+      margin: 0;
+      color: $pre-code;
+      background: $pre-code-background;
+      white-space: pre; // Preserve formatting
+      word-wrap: normal; // Don't wrap words
+    }
+  }
+  
+  // Specific styling for highlight blocks (syntax highlighted code)
+  .highlight {
+    position: relative;
+    margin: 1em 0;
+    
+    div, pre {
+      overflow: auto;
+      max-height: 500px; // Slightly taller for syntax highlighted blocks
+      border-radius: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    // Enhanced scrollbar for highlighted code
+    div::-webkit-scrollbar,
+    pre::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    div::-webkit-scrollbar-track,
+    pre::-webkit-scrollbar-track {
+      background: rgba($coffee-bean, 0.3);
+      border-radius: 4px;
+    }
+    
+    div::-webkit-scrollbar-thumb,
+    pre::-webkit-scrollbar-thumb {
+      background: rgba($warm-clay, 0.6);
+      border-radius: 4px;
+      
+      &:hover {
+        background: rgba($warm-clay, 0.8);
+      }
+    }
+  }
+   
+  // Long single-line code blocks
+  .code-single-line {
+    pre {
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-height: none;
+    }
+  }
+  
+  // Compact code blocks (smaller height)
+  .code-compact {
+    pre {
+      max-height: 200px;
+      font-size: 0.8em;
+      padding: 0.5em 0.8em;
+    }
+  }
+  
+  // Full-height code blocks (for very long code)
+  .code-full-height {
+    pre {
+      max-height: 80vh; // Use most of viewport height
+    }
+  }
+  
+  // No-scroll code blocks (force wrapping)
+  .code-no-scroll {
+    pre {
+      overflow: visible;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-height: none;
+    }
+  }
+  
+  // Mobile responsiveness
+  @media (max-width: 768px) {
+    pre {
+      font-size: 0.8em;
+      padding: 0.5em 0.8em;
+      max-height: 300px; // Smaller on mobile
+      
+      // Thinner scrollbars on mobile
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+    }
+    
+    .highlight div,
+    .highlight pre {
+      max-height: 250px;
+    }
+  }
+  
+  // Dark mode adjustments (if using CSS custom properties)
+  @media (prefers-color-scheme: dark) {
+    pre::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    pre::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }

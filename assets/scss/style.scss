@@ -5,6 +5,7 @@
 @import "normalize.scss";
 @import "syntax.scss";
 @import "images.scss";
+@import "code-blocks.scss";
 {{ if ne false .Site.Params.usesAnimation }}
 @import "animate.scss";
 {{ end }}
@@ -844,8 +845,8 @@ a.footnote-ref {
 #toc {
   position: fixed;
   left: 50%;
-  top: 0;
-  display: none;
+  top: 13em;
+  transform: translateX(-50%);
   background-color: $tableofcontents-background;
 }
 

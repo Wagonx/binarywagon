@@ -1,6 +1,8 @@
 ---
 title: "Building a Windows ISO from Scratch"
 date: 2025-07-24T18:04:02+00:00
+description : Building a Windows ISO using UUPDump 
+Author : Collin Blomberg
 draft: false
 toc: false
 pin: false
