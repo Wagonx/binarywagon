@@ -13,21 +13,21 @@ tags:
 
 #### Who is this for?
 
-This guide will cover, creating a windows VM, configuring the hypervisor, and setting up FlareVM. The goal is by the end of this post, you will have a simple, but effective place to start basic malware analysis. This VM will really only be something you want to use for CTF's or educational challenges. We will not be doing the nessasry configuration on the network to make this sutiable for real world samples, also, if you are reading this guide, you are not ready to work with any real samples quite yet anyway. 
+This guide will cover creating a Windows VM, configuring the hypervisor, and setting up FlareVM. The goal is that by the end of this post, you will have a simple, but effective, place to start fundamental malware analysis. This VM is primarily intended for use in CTFs or educational challenges. We will not be performing the necessary configuration on the network to make this suitable for real-world samples. Additionally, if you are reading this guide, you are not ready to work with any real samples quite yet. 
 
 
 # Section 1 - Creating the Virtual Machine
 
 ## 1.1 - Choosing your ISO
 
-For my example, I will be using a Windows 11 23H3 ISO, if you need help getting your own, check out my other post where I detail the process of doing so. I am also going to use a tool called [Tiny11](https://github.com/ntdevlabs/tiny11builder). Tiny11 is a script that will help debloat my ISO and size it down before I create the virutal machine. This will be useful for keep our resource usage down on the hypervisor host, and allow me to have more VMs running simutanesouly. Tiny11, does remove some built in features of windows, and occasionally can lead to some strange issues, especially if you choose to use the Tiny11Core version. If it does become and issue, doing it without is totally fine. For know, make sure, before moving one, you have completed the following: 
+For my example, I will be using a Windows 11 23H3 ISO If you need help getting your own, check out my other post where I detail the process of doing so. I am also going to use a tool called [Tiny11](https://github.com/ntdevlabs/tiny11builder). Tiny11 is a script that will help optimize my ISO by reducing its size before I create the virtual machine. This will be useful for keeping our resource usage down on the hypervisor host and allowing me to have more VMs running simultaneously. Tiny11 removes some built-in Windows features and can occasionally cause strange issues, especially with the Tiny11Core version. If it does become an issue, doing it without is totally fine. For now, make sure, before moving one, you have completed the following: 
 
 - Obtained a copy of Win11
 - (Optional) Created your Tiny ISO with Tiny11
 
 ## 1.2 Picking your Hypervisor
 
-There are a multitude of both Type 1 (e.g Proxmox) and Type 2 (e.g VirtualBox) hypervisors to choose from. I will personally be demonstrating using VMWare Workstation Pro, my Type 2 hypervisor of choice. You can pick whatever though, the steps are pretty similar, if you are still new, I would not reccomend setting up a Type 1 Hypervisor just for this though. Below are a few options I recommend for Type 2: 
+There are a multitude of both Type 1 (e.g, Proxmox) and Type 2 (e.g, VirtualBox) hypervisors to choose from. I will be demonstrating using VMware Workstation Pro, my Type 2 hypervisor of choice. You can pick whatever, though. The steps are similar. If you are still new, I would not recommend setting up a Type 1 Hypervisor just for this, though. Below are a few options I recommend for Type 2:  
 
 ### Windows HyperVisors
 - [VirtualBox](https://www.virtualbox.org/) (Free)
@@ -55,7 +55,7 @@ I will walk thorough this, step by step, Google is your friend if you are not us
 
 ## 2.1 Windows
 
-When configuring our VMs, we want to take a few things into consideration for malware analysis environments. First, we'll want to disable a couple of Windows features that may make debugging harder - one of those features is Windows Defender. When we are doing malware analysis in controlled lab environments, we want our samples to execute on our terms and not be stopped or interacted with by Defender. We will be disabling all of the real-time monitoring and the service as a whole. We are also going to disable ASLR and DEP. ASLR (Address Space Layout Randomization) works by randomizing the memory addresses of programs each time they are loaded into memory. This usually would make it more difficult for an attacker to exploit a buffer overflow attack, but again, for analysis purposes we want things to execute as they were originally designed. DEP is a bit more in-depth, but you can read more about it here. Along with Defender, we will be disabling all of the Windows Update services as well. This is to keep our environments as static as possible - also, it prevents unnecessary resource consumption during analysis.
+When configuring our VMs, we want to take a few things into consideration for malware analysis environments. First, we'll want to disable a couple of Windows features that may make debugging harder - one of those features is Windows Defender. When we are doing malware analysis in controlled lab environments, we want our samples to execute on our terms and not be stopped or interacted with by Defender. We will be disabling all of the real-time monitoring and the service as a whole. We are also going to disable ASLR and DEP. ASLR (Address Space Layout Randomization) works by randomizing the memory addresses of programs each time they are loaded into memory. This usually would make it more difficult for an attacker to exploit a buffer overflow attack, but again, for analysis purposes we want things to execute as they were originally designed. DEP is a bit more in-depth, but you can read more [about it here](https://heimdalsecurity.com/blog/dep-data-execution-prevention-windows/). Along with Defender, we will be disabling all of the Windows Update services as well. This is to keep our environments as static as possible - also, it prevents unnecessary resource consumption during analysis.
 
 Below is a script that will do all of the above for you. Make sure to run it as an administrator. Also, do not run this outside of a VM environment - it is built to be thorough in disabling these security features, and if you don't know what you're doing, turning these services back on can be quite tedious.
 
@@ -102,7 +102,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DisableWindo
 ## 2.2 Installing FlareVM
 
 This step is recommended, but it can be skipped if desired. Here we will be using a tool called FlareVM to help us install and maintain a consistent set of tools for our future analysis.
-The repository can be found here; they also provide detailed instructions for installation. They also include some helpful links that provide instructions for disabling many of the services we discussed earlier.
+
+The repository can be [found here;](https://github.com/mandiant/flare-vm) they also provide detailed instructions for installation. They also include some helpful links that provide instructions for disabling many of the services we discussed earlier.
 
 Before installing, take a VM snapshot so you can revert if you mess up.
 
@@ -113,6 +114,7 @@ Perform the installation and select all the default options. As you become more 
 Once you have finished setting up all the tools you might want, we will move our VM to host-only networking or NAT. We do not want it to have access to our normal subnets or the internet. The other option is to configure isolated VLANs/subnets for these machines to operate on; however, I will not cover that here.
 
 If you are using VMware Workstation or VirtualBox, disable "drag and drop" and clipboard sharing - these are often the easiest vectors for VM escape vulnerabilities.
+
 Finally, we want to take a snapshot of our base state. This will be what we revert to after we are done or need a clean VM state. If you are using VMware Workstation, I recommend setting this VM up as a template and copying it. I often work on multiple projects at once, and I limit one sample per VM for manual analysis.
 
 # Wrapping Up
