@@ -12,6 +12,8 @@ tags:
   - x64dbg
 ---
 
+ Check the Lab out on Cyberdefenders: <https://cyberdefenders.org/blueteam-ctf-challenges/rotajakiro/>
+
 ## Overview
 
 This walkthrough focuses on malware analysis and reverse engineering, specifically examining the **RotaJakiro** sample provided by CyberDefenders.org. If this is your first time on the platform, I highly recommend exploring their other challenges as well.
@@ -38,10 +40,10 @@ You can also run the sample’s hash through multiple threat intelligence platfo
 
 **Suggested resources**:
 
-- https://attack.mitre.org/software/  
-- https://tria.ge/  
-- Original discovery report: https://blog.netlab.360.com/stealth_rotajakiro_backdoor_en/  
-- https://otx.alienvault.com/  
+- <https://attack.mitre.org/software/>  
+- <https://tria.ge/>  
+- Original discovery report: <https://blog.netlab.360.com/stealth_rotajakiro_backdoor_en/>  
+- <https://otx.alienvault.com/>  
 
 ---
 
